@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="normalize.css"/>
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IdeaBox</title>
+</head>
+<body>
+  <header>
+    <h1>IdeaBox</h1>
+    <input class='js-search search' type="text" placeholder="search"/>
+  </header>
+  <form class="js-idea-form idea-form">
+    <label for="title">Title</label>
+    <input class="js-title-input" type="text" id="body" placeholder="Enter your idea title">
+    <label for="title">Body</label>
+    <input class="js-body-input" type="text" id="title" placeholder="Enter your idea"/>
+    <button class="js-save save-btn">Save</button>
+  </form>
+  <main>
+    <section class="js-ideas-contain">
+    </section>
+  </main>
+</body>
+<script type="text/javascript" src="idea.js"></script>
+<script type="text/javascript" src="main.js"></script>
+</html>

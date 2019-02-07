@@ -1,0 +1,89 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', 'Font Awesome\ 5 Free', sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  margin-top: 2em;
+}
+
+input {
+  display:block;
+  width: 100%;
+  margin-bottom: .8em;
+}
+
+h1 {
+  margin-right: auto;
+}
+
+.search {
+  width: 30%;
+  height: 1.5em;
+  margin-right: 1em;
+}
+
+.idea-form {
+  width: 45%;
+  margin: auto;
+}
+
+.save-btn {
+  border-radius: .5em;
+  display: block;
+  margin: auto;
+  width: 40%;
+}
+
+.idea-bubble {
+  background-color: lightblue;
+  position: relative;
+  border-radius: .5em;
+  padding: .8em 1.1em;
+  width: 30%;
+  margin: 3em auto;
+}
+
+.idea-bubble:before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 20%;
+  top: 100%;
+  border: 1em solid;
+  border-color: lightblue transparent transparent lightblue;
+}
+
+h2 {
+  margin: .2em 0em;  
+}
+
+.quality-sect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quality {
+  display: inline;
+}
+
+.fa-times-circle {
+  margin-left: auto;
+}
+
+.fas {
+  margin-right: .6em;
+}
