@@ -7,7 +7,7 @@ document.querySelector('.js-ideas-contain').addEventListener('click', handleClic
 document.querySelector('.js-ideas-contain').addEventListener('focusout', handleEdit);
 document.querySelector('.js-search').addEventListener('keyup', handleSearch);
 document.querySelector('.js-quality-filter').addEventListener('change', handleFilter);
-document.querySelector('.js-show-btn').addEventListener('click', handleShowingIdeas)
+document.querySelector('.js-show-btn').addEventListener('click', handleShowingIdeas);
 
 
 function createIdea(title, body) {
@@ -88,6 +88,19 @@ function handleSearch() {
   filteredIdeas.forEach(idea => displayIdeaCard(idea));
 }
 
+function handleShowingIdeas() {
+  if (event.target.innerHTML === 'Show More') {
+    document.querySelector('.js-ideas-contain').innerHTML = '';
+    ideas.forEach(idea => displayIdeaCard(idea));
+    document.querySelector('.js-show-btn').innerText = 'Show Less';
+  } else {
+    document.querySelector('.js-ideas-contain').innerHTML = '';
+    displayTenIdeas();
+    document.querySelector('.js-show-btn').innerText = 'Show More';
+  }
+
+}
+
 function handleSubmit(event) {
   event.preventDefault();
   const title = document.querySelector('.js-title-input');
@@ -125,11 +138,11 @@ function repopulateIdeas() {
   const storedIdeas = JSON.parse(localStorage.getItem('ideas'));
   const instancitedIdeas = storedIdeas.map(idea => {
     const updateIdea = new Idea(idea.title, idea.body, idea.id, idea.quality, idea.qualityIndex);
-    displayIdeaCard(updateIdea);
     return updateIdea;
   });
 
-  ideas = [...instancitedIdeas]
+  ideas = [...instancitedIdeas];
+  displayTenIdeas()
 }
 
 function updateSelf(title, body, dataId) {
@@ -141,4 +154,10 @@ function updateSelf(title, body, dataId) {
   });
 }
 
+function displayTenIdeas() {
+  const begin = ideas.length - 10;
+  const end = begin + 11;
+  const tenIdeas = ideas.slice(begin, end);
+  tenIdeas.forEach(idea => displayIdeaCard(idea));
 
+}
