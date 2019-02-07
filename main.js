@@ -5,7 +5,17 @@ displayInitialIdeas()
 document.querySelector('.js-idea-form').addEventListener('submit', handleSubmit);
 document.querySelector('.js-ideas-contain').addEventListener('click', handleClick);
 document.querySelector('.js-ideas-contain').addEventListener('focusout', handleEdit);
-document.querySelector('.js-search').addEventListener('keyup', handleSearch)
+document.querySelector('.js-search').addEventListener('keyup', handleSearch);
+document.querySelector('.js-quality-filter').addEventListener('change', handleFilter);
+document.querySelector('.js-show-btn').addEventListener('click', handleShowingIdeas)
+
+
+function createIdea(title, body) {
+  const idea = new Idea(title, body);
+  ideas = [...ideas, idea];
+  idea.saveToStorage(ideas);
+  displayIdeaCard(idea);
+}
 
 function displayIdeaCard({ title, body, id, quality }) {
   document.querySelector('.js-ideas-contain').insertAdjacentHTML('afterBegin',
@@ -58,6 +68,17 @@ function handleEdit(event) {
   }
 }
 
+function handleFilter() {
+  document.querySelector('.js-ideas-contain').innerHTML = '';
+  const filter = event.target.value;
+  if(filter === 'All') {
+    ideas.forEach(idea => displayIdeaCard(idea))
+  } else {
+    const filteredIdeas = ideas.filter(idea => idea.quality === filter);
+    filteredIdeas.forEach(idea => displayIdeaCard(idea));
+  }
+}
+
 function handleSearch() {
   document.querySelector('.js-ideas-contain').innerHTML = '';
   const query = document.querySelector('.js-search').value.toLowerCase();
@@ -88,22 +109,6 @@ function increaseQuality() {
   });
 }
 
-function updateSelf(title, body, dataId) {
-  const id = parseInt(dataId)
-  ideas.forEach(idea => {
-    if(idea.id === id) {
-      idea.updateContent(title, body)
-    }
-  });
-}
-
-function createIdea(title, body) {
-  const idea = new Idea(title, body);
-  ideas = [...ideas, idea];
-  idea.saveToStorage(ideas);
-  displayIdeaCard(idea);
-}
-
 function removeIdea(ideaCard) {
   const dataId = parseInt(ideaCard.dataset.id);
   const updatedIdeas = ideas.filter(idea => {
@@ -127,5 +132,13 @@ function repopulateIdeas() {
   ideas = [...instancitedIdeas]
 }
 
+function updateSelf(title, body, dataId) {
+  const id = parseInt(dataId)
+  ideas.forEach(idea => {
+    if (idea.id === id) {
+      idea.updateContent(title, body)
+    }
+  });
+}
 
 
