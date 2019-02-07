@@ -25,33 +25,52 @@ input {
 }
 
 h1 {
+  margin-left: 1.4em;
   margin-right: auto;
+  color: #1c3750;
+}
+
+select {
+  display: block;
+  margin: auto;
+  width: 50%;
+  height: 2em;
 }
 
 .search {
-  width: 30%;
+  width: 20%;
   height: 1.5em;
   margin-right: 1em;
 }
 
 .idea-form {
-  width: 45%;
+  width: 50%;
   margin: auto;
 }
 
-.save-btn {
+.save-btn, 
+.show-btn {
   border-radius: .5em;
   display: block;
+  height: 2em;
   margin: auto;
-  width: 40%;
+  background-color: #2a4660;
+  color: white;
+  width: 100%;
 }
 
-.idea-bubble {
-  background-color: lightblue;
+.show-btn {
+  margin: 1em auto;
+  width: 50%;
+}
+
+.idea-bubble {  
+  background-color: #a4dcd2;
+  color: #1c3750;
   position: relative;
   border-radius: .5em;
   padding: .8em 1.1em;
-  width: 30%;
+  width: 50%;
   margin: 3em auto;
 }
 
@@ -63,7 +82,7 @@ h1 {
   left: 20%;
   top: 100%;
   border: 1em solid;
-  border-color: lightblue transparent transparent lightblue;
+  border-color: #a4dcd2 transparent transparent #a4dcd2;
 }
 
 h2 {
@@ -82,8 +101,10 @@ h2 {
 
 .fa-times-circle {
   margin-left: auto;
+  font-size: 1.2em;
 }
 
 .fas {
   margin-right: .6em;
+  font-size: 1.2em;
 }
