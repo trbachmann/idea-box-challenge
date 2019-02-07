@@ -1,5 +1,5 @@
 class Idea {
-  constructor(title, body, id = Date.now(), quality = 'Swill', qualityIndex = 0) {
+  constructor(title, body, id = Date.now(), quality = 'Rubbish', qualityIndex = 0) {
     this.title = title;
     this.body = body;
     this.quality = quality;
@@ -23,8 +23,8 @@ class Idea {
   }
 
   updateQuality(type) {
-    const qualities = ['Swill', 'Plausible', 'Genius'];
-    if (type === 'up' && this.qualityIndex !== 2) {
+    const qualities = ['Rubbish', 'Swill', 'Plausible', 'Genius', 'Kapow'];
+    if (type === 'up' && this.qualityIndex !== 4) {
       this.qualityIndex++
     } else if ( type === 'down' && this.qualityIndex !== 0) {
       this.qualityIndex--
